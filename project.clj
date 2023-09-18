@@ -8,40 +8,39 @@
   :jvm-opts ["-server" "-Xms1024m" "-Xmx1024m" "-XX:+CMSParallelRemarkEnabled" "-XX:+AggressiveOpts" "-XX:+CMSClassUnloadingEnabled" "-XX:+IgnoreUnrecognizedVMOptions"]
   :maintainer {:email "aphyr@aphyr.com"}
   :dependencies [
-    [org.clojure/algo.generic "0.1.2"]
     [org.clojure/clojure "1.9.0"]
+    [org.clojure/algo.generic "0.1.3"]
     [org.clojure/math.numeric-tower "0.0.5"]
-    [org.clojure/tools.logging "1.2.1"]
+    [org.clojure/tools.logging "1.2.4"]
     [org.clojure/tools.nrepl "0.2.13"]
-    [org.clojure/core.cache "0.6.5"]
-    [org.clojure/data.priority-map "0.0.10"]
-    [org.clojure/java.classpath "0.3.0"]
-    [org.slf4j/log4j-over-slf4j "1.7.32"]
+    [org.clojure/core.cache "1.0.225"]
+    [org.clojure/data.priority-map "1.1.0"]
+    [org.clojure/java.classpath "1.0.0"]
+    [org.slf4j/log4j-over-slf4j "2.0.9"]
     [javax.xml.bind/jaxb-api "2.4.0-b180830.0359"]
-    [ch.qos.logback/logback-classic "1.2.10"]
-    [clj-commons/pomegranate "1.2.1"
+    [ch.qos.logback/logback-classic "1.4.11"]
+    [clj-commons/pomegranate "1.2.23"
      :exclusions [org.codehaus.plexus/plexus-utils]]
     ; for pomegranate
-    [org.codehaus.plexus/plexus-utils "3.2.0"]
-    [http-kit "2.2.0"]
-    [clj-http "3.10.0"]
-    [cheshire "5.8.0"]
+    [org.codehaus.plexus/plexus-utils "4.0.0"]
+    [clj-http "3.12.3"]
+    [cheshire "5.11.0"]
     [clj-librato "0.0.5"]
-    [clj-time "0.14.2"]
+    [clj-time "0.15.2"]
     [clj-wallhack "1.0.1"]
     [com.boundary/high-scale-lib "1.0.6"]
-    [interval-metrics "1.0.0"]
+    [interval-metrics "1.0.1"]
     [clj-antlr "0.2.4"]
-    [io.netty/netty-all "4.1.41.Final"]
+    [io.netty/netty-all "4.1.97.Final"]
     [riemann-clojure-client "0.5.4"]
-    [less-awful-ssl "1.0.4"]
+    [less-awful-ssl "1.0.6"]
     [slingshot "0.12.2"]
     [cljr-nsca "0.0.4"]
     [spootnik/kinsky "0.1.26"]
-    [pjstadig/humane-test-output "0.8.3"]
-    [com.fasterxml.jackson.core/jackson-core "2.10.0"]
-    [com.fasterxml.jackson.core/jackson-databind "2.10.0"]]
-  :managed-dependencies [[org.jsoup/jsoup "1.14.3"]]
+    [pjstadig/humane-test-output "0.11.0"]
+    [com.fasterxml.jackson.core/jackson-core "2.15.2"]
+    [com.fasterxml.jackson.core/jackson-databind "2.15.2"]]
+  :managed-dependencies [[org.jsoup/jsoup "1.16.1"]]
   :plugins [[lein-codox "0.10.6"]
 
             [lein-difftest "2.0.0"]
@@ -64,7 +63,7 @@
 ;                              "-Dcom.sun.management.jmxremote"
 ;                              "-XX:+UnlockCommercialFeatures"
 ;                              "-XX:+FlightRecorder"]
-                   :dependencies [[criterium "0.4.4"]]}
+                   :dependencies [[criterium "0.4.6"]]}
              :uberjar {:aot :all}}
   :test-selectors {:default (fn [x] (not (or (:integration x)
                                              (:time x)
