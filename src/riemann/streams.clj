@@ -24,6 +24,7 @@
 
   Some common patterns for defining child streams are (fn [e] (println e))
   and (partial log :info)."
+  (:refer-clojure :exclude [abs])
   (:use [riemann.common :exclude [match]]
         [riemann.time :only [unix-time
                              linear-time

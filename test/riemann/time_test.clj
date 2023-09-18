@@ -1,4 +1,5 @@
 (ns riemann.time-test
+  (:refer-clojure :exclude [abs])
   (:require [riemann.common :refer [approx-equal]]
             [riemann.logging :as logging]
             [riemann.time :refer :all]

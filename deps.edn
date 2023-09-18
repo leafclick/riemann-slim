@@ -1,0 +1,35 @@
+{:paths ["src" "resources"]
+ :deps
+ {org.clojure/clojure {:mvn/version "1.11.1"},
+  org.clojure/tools.logging {:mvn/version "1.2.4"},
+  com.fasterxml.jackson.core/jackson-databind {:mvn/version "2.15.2"},
+  clj-wallhack/clj-wallhack {:mvn/version "1.0.1"},
+  org.codehaus.plexus/plexus-utils {:mvn/version "4.0.0"},
+  slingshot/slingshot {:mvn/version "0.12.2"},
+  com.fasterxml.jackson.core/jackson-core {:mvn/version "2.15.2"},
+  clj-time/clj-time {:mvn/version "0.15.2"},
+  clj-http/clj-http {:mvn/version "3.12.3"},
+  org.clojure/math.numeric-tower {:mvn/version "0.0.5"},
+  pjstadig/humane-test-output {:mvn/version "0.11.0"},
+  org.clojure/java.classpath {:mvn/version "1.0.0"},
+  org.clojure/tools.nrepl {:mvn/version "0.2.13"},
+  spootnik/kinsky {:mvn/version "0.1.26"},
+  org.clojure/algo.generic {:mvn/version "0.1.3"},
+  cheshire/cheshire {:mvn/version "5.11.0"},
+  riemann-clojure-client/riemann-clojure-client {:mvn/version "0.5.4", :exclusions [com.google.protobuf/protobuf-java]},
+  interval-metrics/interval-metrics {:mvn/version "1.0.1"},
+  com.boundary/high-scale-lib {:mvn/version "1.0.6"},
+  clj-commons/pomegranate {:mvn/version "1.2.23", :exclusions [org.codehaus.plexus/plexus-utils]},
+  com.google.protobuf/protobuf-java {:mvn/version "3.24.3"},
+  ch.qos.logback/logback-classic {:mvn/version "1.4.11"},
+  clj-antlr/clj-antlr {:mvn/version "0.2.4"},
+  org.clojure/data.priority-map {:mvn/version "1.1.0"},
+  less-awful-ssl/less-awful-ssl {:mvn/version "1.0.6"},
+  io.netty/netty-all {:mvn/version "4.1.97.Final"},
+  org.slf4j/log4j-over-slf4j {:mvn/version "2.0.9"},
+  org.clojure/core.cache {:mvn/version "1.0.225"},
+  javax.xml.bind/jaxb-api {:mvn/version "2.4.0-b180830.0359"},
+  clj-librato/clj-librato {:mvn/version "0.0.5"}}
+ :mvn/repos {"centralx" {:url "https://repo1.maven.org/maven2/"}
+             "clojars"  {:url "https://clojars.org/repo"}
+             "redhat"   {:url "https://maven.repository.redhat.com/ga/"}}}

@@ -2,8 +2,9 @@
   "Provides controllable periodic and deferred execution. Calling (advance!
   delta-in-seconds) moves the clock forward, triggering events that would have
   occurred, in sequence."
-  (:use riemann.time
-        clojure.math.numeric-tower))
+  (:refer-clojure :exclude [abs])
+  (:require [riemann.time :refer :all]
+            [clojure.math.numeric-tower :refer :all]))
 
 (def clock
   "Reference to the current time, in seconds."

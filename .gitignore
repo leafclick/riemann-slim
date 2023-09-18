@@ -33,5 +33,6 @@ site/**
 bench/**
 target/**
 /target/
+.cpcache/
 config.edn
 riemann.config

@@ -1,10 +1,7 @@
 (ns riemann.common
   "Utility functions. Time/date, some flow control constructs, protocol buffer
   definitions and codecs, some vector set ops, etc."
-  (:import [java.util Date]
-           (java.io InputStream)
-           [io.riemann.riemann Proto$Query Proto$Event Proto$Msg]
-           [java.net InetAddress])
+  (:refer-clojure :exclude [abs])
   (:require clj-time.core
             clj-time.format
             clj-time.coerce
@@ -16,7 +13,9 @@
         [clojure.java.shell :only [sh]]
         clojure.tools.logging
         riemann.codec
-        clojure.math.numeric-tower))
+        clojure.math.numeric-tower)
+  (:import (io.riemann.riemann Proto$Msg)
+           (java.io InputStream)))
 
 (defprotocol Match
   (match [pred object]

@@ -2,11 +2,12 @@
   "Clocks and scheduled tasks. Provides functions for getting the current time
   and running functions (Tasks) at specific times and periods. Includes a
   threadpool for task execution, controlled by (start!) and (stop!)."
+  (:refer-clojure :exclude [abs])
+  (:require [clojure.math.numeric-tower :refer [ceil]]
+            [clojure.stacktrace :refer [print-stack-trace]]
+            [clojure.tools.logging :refer [warn]])
   (:import [java.util.concurrent ConcurrentSkipListSet]
-           [java.util.concurrent.locks LockSupport])
-  (:use [clojure.math.numeric-tower :only [ceil]]
-        [clojure.stacktrace         :only [print-stack-trace]]
-        [clojure.tools.logging      :only [warn]]))
+           [java.util.concurrent.locks LockSupport]))
 
 (defprotocol Task
   (succ [task]

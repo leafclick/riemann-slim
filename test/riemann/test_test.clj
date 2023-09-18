@@ -1,9 +1,11 @@
 (ns riemann.test-test
   "Who tests the testers?"
+  (:refer-clojure :exclude [abs tap])
   (:require [riemann.streams :refer :all]
             [riemann.test :refer [tap io with-test-env inject! fresh-results *results* *taps*]]
             [riemann.time.controlled :refer :all]
-            [clojure.test :refer :all]))
+            [clojure.test :refer :all])
+  (:import (clojure.lang Compiler$CompilerException)))
 
 (defmacro bound
   "Invokes body in a bound fn. Tests may run without a binding context, which
@@ -18,8 +20,8 @@
                   `(do (tap :foo prn)
                        (tap :bar prn)
                        (tap :foo nil))))
-              (catch RuntimeException e
-                (.getMessage e)))]
+              (catch Compiler$CompilerException e
+                (.getMessage (.getCause e))))]
     (is (re-find #"Tap :foo \(.+?:\) already defined at :" err))))
 
 (deftest tap-captures-events

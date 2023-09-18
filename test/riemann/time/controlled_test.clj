@@ -1,4 +1,5 @@
 (ns riemann.time.controlled-test
+  (:refer-clojure :exclude [abs])
   (:require [riemann.logging :as logging]
             [riemann.time :refer :all]
             [riemann.time.controlled :refer :all]
