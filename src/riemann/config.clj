@@ -19,9 +19,7 @@
                      [test        :as test :refer [tap io tests]]
                      [time        :refer [unix-time linear-time once! every!]]]
             [riemann.transport [tcp        :as tcp]
-                               [udp        :as udp]
-                               [websockets :as websockets]
-                               [sse        :as sse]]
+                               [udp        :as udp]]
             [cemerick.pomegranate :refer [add-dependencies]]
             [clojure.java.io :refer [file]]
             [clojure.tools.nrepl.server :as repl]
@@ -114,20 +112,6 @@
   (udp-server {:port 5555})"
   [& opts]
   (service! (udp/udp-server (kwargs-or-map opts))))
-
-(defn ws-server
-  "Add a new websockets server with opts to the default core.
-
-  (ws-server {:port 5556})"
-  [& opts]
-  (service! (websockets/ws-server (kwargs-or-map opts))))
-
-(defn sse-server
-  "Add a new SSE channel server with opts to the default core.
-
-  (sse-server {:port 5556})"
-  [& opts]
-  (service! (sse/sse-server (kwargs-or-map opts))))
 
 (defn kafka-consumer
   "Add a new kafka consumer with opts to the default core.

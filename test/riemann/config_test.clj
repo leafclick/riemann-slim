@@ -111,11 +111,6 @@
   (reset-core! #())
   (verify-service (udp-server {:host "b"})))
 
-(deftest ws-server-test
-  (verify-service (ws-server :port 1234))
-  (reset-core! #())
-  (verify-service (ws-server {:port 1234})))
-
 (deftest streams-test
   (streams :a)
   (streams :b)
