@@ -116,11 +116,6 @@
   (reset-core! #())
   (verify-service (ws-server {:port 1234})))
 
-(deftest graphite-server-test
-  (verify-service (graphite-server :port 1))
-  (reset-core! #())
-  (verify-service (graphite-server {:port 1})))
-
 (deftest streams-test
   (streams :a)
   (streams :b)

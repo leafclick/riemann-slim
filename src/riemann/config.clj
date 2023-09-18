@@ -4,64 +4,24 @@
   config. Provides a default core and functions ((tcp|udp)-server, streams,
   index, reinject) which operate on that core."
   (:import (java.io File))
-  (:require [riemann [boundary    :refer [boundary]]
-                     [client      :refer [udp-client tcp-client multi-client]]
-                     [clickhouse  :refer [clickhouse]]
-                     [cloudwatch  :refer [cloudwatch]]
+  (:require [riemann [client      :refer [udp-client tcp-client multi-client]]
                      [common      :as common :refer [event]]
                      [core        :as core]
-                     [datadog     :refer [datadog]]
-                     [druid       :refer [druid]]
-                     [email       :refer [mailer]]
                      [folds       :as folds]
-                     [graphite    :as graphite-client :refer [graphite]]
-                     [hipchat     :refer [hipchat]]
                      [index       :as index]
-                     [influxdb    :refer [influxdb]]
-                     [influxdb2   :refer [influxdb2]]
                      [kafka       :as kafka :refer [kafka]]
-                     [kairosdb    :refer [kairosdb]]
-                     [keenio      :refer [keenio]]
-                     [librato     :refer [librato-metrics]]
-                     [logentries  :refer [logentries]]
                      [logging     :as logging]
-                     [logstash    :as logstash :refer [logstash]]
-                     [mailgun     :refer [mailgun]]
-                     [msteams     :refer [msteams]]
-                     [nagios      :refer [nagios]]
-                     [netuitive   :refer [netuitive]]
-                     [opentsdb    :refer [opentsdb]]
-                     [opsgenie    :refer [opsgenie]]
-                     [pagerduty   :refer [pagerduty]]
                      [plugin      :refer [load-plugin load-plugins]]
                      [pubsub      :as pubsub]
-                     [pushover    :refer [pushover]]
-                     [rabbitmq    :refer [rabbitmq]]
                      [repl]
                      [service     :as service]
-                     [shinken     :refer [shinken]]
-                     [slack       :refer [slack]]
-                     [sns         :refer [sns-publisher]]
-                     [stackdriver :refer [stackdriver]]
-                     [prometheus  :refer [prometheus]]
-                     [elasticsearch :refer [elasticsearch
-                                            default-bulk-formatter
-                                            elasticsearch-bulk]]
                      [streams     :refer :all]
-                     [telegram    :refer [telegram]]
                      [test        :as test :refer [tap io tests]]
-                     [time        :refer [unix-time linear-time once! every!]]
-                     [twilio      :refer [twilio]]
-                     [victorops   :refer [victorops]]
-                     [xymon       :refer [xymon]]
-                     [zabbix      :refer [zabbix]]]
+                     [time        :refer [unix-time linear-time once! every!]]]
             [riemann.transport [tcp        :as tcp]
                                [udp        :as udp]
                                [websockets :as websockets]
-                               [sse        :as sse]
-                               [graphite   :as graphite]
-                               [opentsdb   :as opentsdb]
-                               [rabbitmq   :as rabbitmq]]
+                               [sse        :as sse]]
             [cemerick.pomegranate :refer [add-dependencies]]
             [clojure.java.io :refer [file]]
             [clojure.tools.nrepl.server :as repl]
@@ -148,20 +108,6 @@
   [& opts]
   (service! (tcp/tcp-server (kwargs-or-map opts))))
 
-(defn graphite-server
-  "Add a new Graphite TCP server with opts to the default core.
-
-  (graphite-server {:port 2222})"
-  [& opts]
-  (service! (graphite/graphite-server (kwargs-or-map opts))))
-
-(defn opentsdb-server
-  "Add a new OpenTSDB TCP server with opts to the default core.
-
-  (opentsdb-server {:port 4242})"
-  [& opts]
-  (service! (opentsdb/opentsdb-server (kwargs-or-map opts))))
-
 (defn udp-server
   "Add a new UDP server with opts to the default core.
 
@@ -182,20 +128,6 @@
   (sse-server {:port 5556})"
   [& opts]
   (service! (sse/sse-server (kwargs-or-map opts))))
-
-(defn rabbitmq-transport
-  "Add a new RabbitMQ transport to the default core.
-
-  ```
-  (rabbitmq-transport {:host \"localhost\"
-                       :port 5672
-                       :riemann.exchange-settings {:name \"riemann\"
-                                                   :auto-delete true}
-                       :riemann.routing-key \"riemann.events\"})
-  ```
-  "
-  [& opts]
-  (service! (rabbitmq/rabbitmq-transport (kwargs-or-map opts))))
 
 (defn kafka-consumer
   "Add a new kafka consumer with opts to the default core.

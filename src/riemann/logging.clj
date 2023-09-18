@@ -18,11 +18,6 @@
              SizeBasedTriggeringPolicy)
            (ch.qos.logback.classic.encoder
              PatternLayoutEncoder)
-           (net.logstash.logback
-             JSONEventLayoutV0
-             JSONEventLayoutV1)
-           (net.logstash.logback.encoder
-             LogstashEncoder)
            (java.net URL)
            (ch.qos.logback.classic.joran JoranConfigurator))
   (:require wall.hack))
@@ -39,24 +34,6 @@
 
 
 (defmulti encoder identity)
-
-(defmethod encoder :json
-  [type]
-  (LogstashEncoder.))
-
-(defmethod encoder :json-event
-  [type]
-  (encoder :json-event-v0))
-
-(defmethod encoder :json-event-v0
-  [type]
-  (doto (LayoutWrappingEncoder.)
-    (.setLayout (JSONEventLayoutV0.))))
-
-(defmethod encoder :json-event-v1
-  [type]
-  (doto (LayoutWrappingEncoder.)
-    (.setLayout (JSONEventLayoutV1.))))
 
 (defmethod encoder :riemann
   [type]

@@ -10,7 +10,7 @@
   :dependencies [
     [org.clojure/algo.generic "0.1.2"]
     [org.clojure/clojure "1.9.0"]
-    [org.clojure/math.numeric-tower "0.0.4"]
+    [org.clojure/math.numeric-tower "0.0.5"]
     [org.clojure/tools.logging "1.2.1"]
     [org.clojure/tools.nrepl "0.2.13"]
     [org.clojure/core.cache "0.6.5"]
@@ -19,10 +19,6 @@
     [org.slf4j/log4j-over-slf4j "1.7.32"]
     [javax.xml.bind/jaxb-api "2.4.0-b180830.0359"]
     [ch.qos.logback/logback-classic "1.2.10"]
-    [com.github.juise/logstash-logback-layout "1.0"]
-    [net.logstash.logback/logstash-logback-encoder "6.4"]
-    [org.influxdb/influxdb-java "2.21"]
-    [com.influxdb/influxdb-client-java "2.2.0"]
     [clj-commons/pomegranate "1.2.1"
      :exclusions [org.codehaus.plexus/plexus-utils]]
     ; for pomegranate
@@ -34,8 +30,6 @@
     [clj-time "0.14.2"]
     [clj-wallhack "1.0.1"]
     [com.boundary/high-scale-lib "1.0.6"]
-    [com.draines/postal "2.0.2"]
-    [com.amazonaws/aws-java-sdk "1.11.116" :exclusions [joda-time]]
     [interval-metrics "1.0.0"]
     [clj-antlr "0.2.4"]
     [io.netty/netty-all "4.1.41.Final"]
@@ -43,10 +37,8 @@
     [less-awful-ssl "1.0.4"]
     [slingshot "0.12.2"]
     [cljr-nsca "0.0.4"]
-    [amazonica "0.3.161" :exclusions [joda-time]]
     [spootnik/kinsky "0.1.26"]
     [pjstadig/humane-test-output "0.8.3"]
-    [com.novemberain/langohr "5.1.0"]
     [com.fasterxml.jackson.core/jackson-core "2.10.0"]
     [com.fasterxml.jackson.core/jackson-databind "2.10.0"]]
   :managed-dependencies [[org.jsoup/jsoup "1.14.3"]]
@@ -112,8 +104,8 @@
                    :clickhouse :clickhouse
                    :all (fn [_] true)}
 ;;  :javac-options     ["-target" "1.6" "-source" "1.6"]
-  :java-source-paths ["src/riemann/"]
-  :java-source-path "src/riemann/"
+  :java-source-paths ["src/"]
+  :java-source-path "src/"
 ;  :aot [riemann.bin]
   :main riemann.bin
   :codox {:output-path "site/api"
