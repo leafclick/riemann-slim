@@ -8,7 +8,7 @@
             [riemann.pubsub :as pubsub]
             [riemann.transport.tcp :refer :all]
             [riemann.transport.udp :refer :all]
-            [cheshire.core :as json]
+            [charred.api :as json]
             [clj-http.client :as http]
             [clojure.java.io :as io]
             [clojure.test :refer :all])

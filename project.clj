@@ -24,7 +24,7 @@
     ; for pomegranate
     [org.codehaus.plexus/plexus-utils "4.0.0"]
     [clj-http/clj-http "3.12.3"]
-    [cheshire/cheshire "5.11.0"]
+    [com.cnuernber/charred "1.032"]
     [clj-librato/clj-librato "0.0.5"]
     [clj-time/clj-time "0.15.2"]
     [clj-wallhack/clj-wallhack "1.0.1"]

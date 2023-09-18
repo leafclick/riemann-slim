@@ -6,7 +6,7 @@
             clj-time.format
             clj-time.coerce
             clojure.set
-            [cheshire.core :as json]
+            [charred.api :as json]
             [clojure.java.io :as io])
   (:use [clojure.string :only [split join]]
         [riemann.time :only [unix-time]]
@@ -125,7 +125,7 @@
 (defn event-to-json
   "Convert an event to a JSON string."
   [event]
-  (json/generate-string
+  (json/write-json-str
     (assoc event :time (unix-to-iso8601 (:time event)))))
 
 (defn ensure-event-time

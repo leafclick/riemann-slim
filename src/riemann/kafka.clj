@@ -1,7 +1,7 @@
 (ns riemann.kafka
   "Receives events from and forwards events to Kafka."
   (:require [kinsky.client :as client]
-            [cheshire.core :as json]
+            [charred.api :as json]
             [riemann.test :as test])
   (:use [riemann.common        :only [event]]
         [riemann.core          :only [stream!]]
@@ -54,7 +54,7 @@
     (fn [_ payload]
       (when payload
         (try
-          (json/parse-string (String. payload "UTF-8") true)
+          (json/read-json (String. payload "UTF-8") :key-fn keyword)
         (catch Exception e
           (error e "Could not decode message")))))))
 
