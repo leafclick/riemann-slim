@@ -36,6 +36,7 @@
     [riemann-clojure-client/riemann-clojure-client "0.5.4" :exclusions [com.google.protobuf/protobuf-java]]
     [less-awful-ssl/less-awful-ssl "1.0.6"]
     [slingshot/slingshot "0.12.2"]
+    [org.apache.kafka/kafka-clients "3.5.1"]
     [spootnik/kinsky "0.1.26"]
     [pjstadig/humane-test-output "0.11.0"]
     [com.fasterxml.jackson.core/jackson-core "2.15.2"]
