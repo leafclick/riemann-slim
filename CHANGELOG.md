@@ -1,4 +1,11 @@
 # Changelog
+## [0.3.9](https://github.com/leafclick/riemann-slim) (2023-10-02)
+- Slimmed down repo to streaming and kafka connector only
+- Updated and removed most dependencies to avoid security issues
+- Updated to clojure 1.11
+- Replaced Cheshire with Charred for improved performance
+- Update to Kafka client 3.5.1
+- Use custom consumer instead of Kinsky wrapper for improved performance
 
 ## [0.3.8](https://github.com/riemann/riemann/tree/0.3.8) (2021-12-13)
 

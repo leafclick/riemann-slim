@@ -1,4 +1,4 @@
-(defproject leafclick/riemann-slim "0.3.9-SNAPSHOT"
+(defproject com.leafclick/riemann-slim "0.3.9"
   :description
 "A network event stream processor. Intended for analytics, metrics, and alerting; and to glue various monitoring systems together."
   :url "https://github.com/riemann/riemann"
